@@ -8,13 +8,15 @@ GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
 
 GPIO.setup(12,GPIO.OUT)# led GPIO
-
+GPIO.output(12,GPIO.LOW)#SET LED LOW
 
 def button_callback(channel):
-    GPIO.output(18,GPIO.HIGH)
+    GPIO.output(12,GPIO.HIGH)
     print("Button was pushed!")
+    sleep(1)
+    GPIO.output(12,GPIO.LOW)
 
-GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback) # Setup event on pin 10 rising edge
+GPIO.add_event_detect(10,GPIO.FALLING,callback=button_callback) # Setup event on pin 10 rising edge
 
 
 # datetime object containing current date and time

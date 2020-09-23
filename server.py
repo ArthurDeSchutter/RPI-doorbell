@@ -1,3 +1,5 @@
+import os
+import shutil
 from time import sleep
 from picamera import PiCamera
 from datetime import datetime
@@ -23,4 +25,6 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string)
 
+path = //DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder)
 
+shutil.move("/home/pi/Documents/RPI-doorbell/MoveTest.txt", "DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder")

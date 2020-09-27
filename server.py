@@ -8,7 +8,7 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 #camera settings
 camera = picamera.PiCamera()
 camera.framerate = 15
-camera.resolution = (1920,1080)
+#camera.resolution = (1920,1080)
 
 
 

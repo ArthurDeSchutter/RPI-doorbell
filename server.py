@@ -4,7 +4,12 @@ from time import sleep
 import picamera
 from datetime import datetime
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+
+#camera settings
 camera = picamera.PiCamera()
+camera.framerate = 15
+camera.resolution = (1920,1080)
+
 
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
@@ -42,6 +47,5 @@ def getTime():
     print(dt_string)
     return dt_string
 
-path = //DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder)
 
-shutil.move("/home/pi/Documents/RPI-doorbell/MoveTest.txt", "DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder")
+#shutil.move("/home/pi/Documents/RPI-doorbell/MoveTest.txt", "DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder")

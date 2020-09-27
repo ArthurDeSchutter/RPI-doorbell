@@ -11,6 +11,7 @@ camera.framerate = 15
 camera.resolution = (1920,1080)
 
 
+
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
@@ -29,8 +30,8 @@ GPIO.add_event_detect(10,GPIO.FALLING,callback=button_callback) # Setup event on
 
 def record(time,filename):
     GPIO.output(12,GPIO.HIGH)
-    
-    filename = filename + ".h264"
+    folder_Location = "/home/pi/Desktop/Windows-Share/"
+    filename = folder_Location + filename + ".h264"
     print(filename)
     camera.start_recording(filename)
     camera.wait_recording(int(time))

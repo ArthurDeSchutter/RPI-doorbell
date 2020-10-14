@@ -19,6 +19,8 @@ GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input 
 GPIO.setup(12,GPIO.OUT)# led GPIO
 GPIO.output(12,GPIO.LOW)#SET LED LOW
 
+#set PIR sensor input
+GPIO.setup(17,GPIO.IN)
 def button_callback(channel):
     
     print("Button was pushed!")
@@ -50,3 +52,6 @@ def getTime():
 
 
 #shutil.move("/home/pi/Documents/RPI-doorbell/MoveTest.txt", "DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder")
+while(True):
+    if GPIO.input(17) == :
+        pass

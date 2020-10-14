@@ -24,7 +24,7 @@ pir_pin = 17
 GPIO.setup(pir_pin,GPIO.IN)
 while True:
     if GPIO.input(PIR_PIN):
-        print "Motion Detected!"
+        print("Motion Detected!")
     time.sleep(1)
 def button_callback(channel):
     

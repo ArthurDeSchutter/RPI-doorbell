@@ -26,12 +26,13 @@ GPIO.setup(12,GPIO.OUT)# led GPIO
 GPIO.output(12,GPIO.LOW)#SET LED LOW
 
 #set PIR sensor input
-pir_pin = 17
-GPIO.setup(pir_pin,GPIO.IN)
-while True:
-    if GPIO.input(PIR_PIN):
-        print("Motion Detected!")
-    time.sleep(1)
+
+#pir_pin = 17
+#GPIO.setup(pir_pin,GPIO.IN)
+#while True:
+#    if GPIO.input(PIR_PIN):
+#        print("Motion Detected!")
+#    time.sleep(1)
 
 
 def button_callback(channel):
@@ -43,7 +44,7 @@ def button_callback(channel):
             "1" + getTime(),
             "2" + getTime(),
             "3" + getTime(),
-        ]
+        ],
         "favorite": False
     }
     print("Button was pushed!")

@@ -20,6 +20,8 @@ camera.framerate = 15
 
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
+
+#button pin
 GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
 
 GPIO.setup(12,GPIO.OUT)# led GPIO
@@ -27,18 +29,18 @@ GPIO.output(12,GPIO.LOW)#SET LED LOW
 
 #set PIR sensor input
 
-#pir_pin = 17
-#GPIO.setup(pir_pin,GPIO.IN)
-#while True:
-#    if GPIO.input(PIR_PIN):
-#        print("Motion Detected!")
-#    time.sleep(1)
+pir_pin = 17
+GPIO.setup(pir_pin,GPIO.IN)
+while True:
+    if GPIO.input(PIR_PIN):
+        print("Motion Detected!")
+    time.sleep(1)
 
 
 def button_callback(channel):
     JSONEvent = {
         "date": getTime(),
-        "filename": getTime(),
+        "filename": str(getTime()),
         "photos":
         [
             "1" + getTime(),
@@ -59,7 +61,7 @@ GPIO.add_event_detect(10,GPIO.FALLING,callback=button_callback) # Setup event on
 
 def record(time,filename):
     GPIO.output(12,GPIO.HIGH)
-    folder_Location = "/home/pi/Desktop/Windows-Share/"
+    folder_Location = "/home/pi/Desktop/Doorbell_source/"
     filename = folder_Location + filename + ".h264"
     print(filename)
     #capture image and start recording

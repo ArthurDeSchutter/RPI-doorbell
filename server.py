@@ -6,6 +6,7 @@ from datetime import datetime
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import json
 import pymongo
+from JSONEvent import JSONEvent
 
 #mongoDB stuff
 client = pymongo.MongoClient("mongodb+srv://APuser:Bulletbomb1@doorbellevents.xbdxu.mongodb.net/Events?retryWrites=true&w=majority")
@@ -49,8 +50,17 @@ def button_callback(channel):
         ],
         "favorite": False
     }
+    event = JSONEvent(
+        getTime(),
+        getTime(),
+        [
+            "1" + getTime(),
+            "2" + getTime(),
+            "3" + getTime(),
+        ],
+)
     print("Button was pushed!")
-    record(10,JSONEvent.filename)
+    record(10,event.filename)
     #convert the dictionary in a proper JSON object
     JSONEvent = json.dumps(JSONEvent)
     db.Events.insert(JSONEvent)

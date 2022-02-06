@@ -5,12 +5,8 @@ import picamera
 from datetime import datetime
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import json
-import pymongo
 from JSONEvent import JSONEvent
 
-#mongoDB stuff
-client = pymongo.MongoClient("mongodb+srv://APuser:Bulletbomb1@doorbellevents.xbdxu.mongodb.net/Events?retryWrites=true&w=majority")
-db = client.test
 
 #camera settings
 camera = picamera.PiCamera()

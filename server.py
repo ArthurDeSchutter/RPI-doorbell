@@ -71,18 +71,14 @@ GPIO.add_event_detect(10,GPIO.FALLING,callback=button_callback) # Setup event on
 
 def record(time,filename):
     GPIO.output(12,GPIO.HIGH)
-    folder_Location = "/home/pi/Desktop/Doorbell_source/"
+    folder_Location = "resources/"
     filename = folder_Location + filename + ".h264"
     print(filename)
-    #capture image and start recording
-    camera.capture("1" + filename, use_video_port=True)
+
     camera.start_recording(filename)
-    #wait time / 2 to take a pic and start recording again
-    camera.wait_recording(int(time/2))
-    camera.capture("1" + filename, use_video_port=True)
-    camera.wait_recording(int(time/2))
-    #stop recording and capture final image
+    camera.wait_recording(time)
     camera.stop_recording()
+    
     camera.capture("1" + filename, use_video_port=True)
 
     
@@ -98,4 +94,3 @@ def getTime():
     return dt_string
 
 
-#shutil.move("/home/pi/Documents/RPI-doorbell/MoveTest.txt", "DESKTOP-T2EQU5J/Users/Arthur%20De%20Schutter/Desktop/RPInetworkFolder")
